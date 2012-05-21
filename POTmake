@@ -1,0 +1,18 @@
+.TH AUTOpot 1 "19 April 2011" "1.0" "AUTOPot.pl"
+.SH NAME
+AUTOpot.pl \- Generates a mathlink executable from a POTLib fortran library
+.SH SYNOPSIS
+perl AUTOpot.pl [OPTION] LIBFILE NAME LIB
+.SH DESCRIPTION
+The AUTOpot script generates a MathLink executable from LIBFILE (that uses the LIB library) to a folder NAME or takes a list from a CSV file.
+.SH OPTIONS
+.IP "-m"
+Automaticlly runs 
+.B make
+for each library generated
+.IP "-c CSV count"
+Pulls the LIBFILE NAME and LIB from a comma seperated values list instead of arguments. Make sure your count is correct and the headers are
+.B LIBFILE, NAME, & LIB
+It is CASE SENSITIVE!
+.SH AUTHOR
+Aaron Tagliaboschi (aaron.tagliaboschi@gmail.com)
