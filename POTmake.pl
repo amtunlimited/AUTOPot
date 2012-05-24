@@ -9,6 +9,14 @@ use potlib;
 $make = 0;
 $csv  = 0;
 my $csvFile, $csvCount;
+
+if ($ARGV[0] eq '-w') {
+	shift;
+	print "Windows version\n";
+	makeLibWin(shift, shift);
+	
+}
+
 foreach(0..1) {
 	if ($ARGV[0] eq '-m') {
 		shift;
@@ -34,6 +42,8 @@ if ($csv) {
 	
 } elsif (@ARGV == 3) {
 	makeLib(shift, shift, shift, $make);
+} elsif (@ARGV == 0) {
+	print "Good day";
 } else {
 	print "Arguments: @ARGV\n";
 	die "Sorry, wrong number of arguments or something";
