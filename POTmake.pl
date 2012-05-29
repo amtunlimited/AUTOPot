@@ -10,13 +10,6 @@ $make = 0;
 $csv  = 0;
 my $csvFile, $csvCount;
 
-if ($ARGV[0] eq '-w') {
-	shift;
-	print "Windows version\n";
-	makeLibWin(shift, shift);
-	
-}
-
 foreach(0..1) {
 	if ($ARGV[0] eq '-m') {
 		shift;
