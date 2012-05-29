@@ -1,11 +1,11 @@
 :Begin:
 :Function: 		pot
-:Pattern:			FUNCinner[Coord_]
+:Pattern:			fhcygtestinner[Coord_]
 :Arguments:		{Coord}
 :ArgumentTypes:	{RealList}
 :ReturnType:		Manual
 :End:
-:Evaluate:		FUNC[coord_]:=Module[{answer=FUNCinner[coord]},
+:Evaluate:		fhcygtest[coord_]:=Module[{answer=fhcygtestinner[coord]},
 					Return[{answer[[1]],
 							Table[answer[[i]],{i,2,4}],
 							Table[answer[[i]],{i,5,7}],
