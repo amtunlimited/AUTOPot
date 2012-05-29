@@ -9,6 +9,14 @@ use potlib;
 $make = 0;
 $csv  = 0;
 my $csvFile, $csvCount;
+
+if ($ARGV[0] eq '-w') {
+	print "derp\n";
+	makeLibWin($ARGV[1], $ARGV[2]);
+	print "herp Derp\n";
+	exit 0;
+}
+
 foreach(0..1) {
 	if ($ARGV[0] eq '-m') {
 		shift;

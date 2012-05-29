@@ -1,0 +1,89 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2406,         80]
+NotebookOptionsPosition[      2019,         62]
+NotebookOutlinePosition[      2361,         77]
+CellTagsIndexPosition[      2318,         74]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<fh2cyg\>\""}], 
+  "]"}], "\n", 
+ RowBox[{"Install", "[", "\"\<fh2cyg.exe\>\"", "]"}], "\n", 
+ RowBox[{"fh2cyg", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "0", ",", "0.5", ",", "0", ",", "0", ",", "0.4", ",", "0", ",", 
+    "3", ",", "1.5"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.547074707846504*^9, 3.5470747327175045`*^9}, {
+   3.547074779626504*^9, 3.547074796173504*^9}, 3.547075111580904*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\WKUUSER\\\\Dropbox\\\\Research\\\\AutoPOT\\\\\
+fh2cyg\"\>"], "Output",
+ CellChangeTimes->{3.5470751131325045`*^9}],
+
+Cell[BoxData[
+ RowBox[{"LinkObject", "[", 
+  RowBox[{"\<\"\\\"C:\\\\Users\\\\WKUUSER\\\\Dropbox\\\\Research\\\\AutoPOT\\\
+\\fh2cyg\\\\fh2cyg.exe\\\"\"\>", ",", "9", ",", "9"}], "]"}]], "Output",
+ CellChangeTimes->{3.547075113182504*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"21.17370496707601`", ",", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"-", "5.799027768373174`"}], ",", 
+     RowBox[{"-", "237.38720690977806`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "5.42923953476078`", ",", "237.4449188163993`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "0.3697882336123943`", ",", 
+     RowBox[{"-", "0.057711906621228035`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.547075113183504*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 545},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 523, 12, 72, "Input"],
+Cell[1105, 36, 147, 2, 30, "Output"],
+Cell[1255, 40, 236, 4, 30, "Output"],
+Cell[1494, 46, 509, 13, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
