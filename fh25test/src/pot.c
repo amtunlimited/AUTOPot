@@ -23,7 +23,7 @@ extern struct {
 } usrocm_;
 
 void pot(
-	double cart[], int coordLength, double anuzero, 
+	double cart[], int cartLength, double anuzero, 
 	int nulbl[], int nulblLength, int nflag[], int nflagLength,
 	int nasurf[], int nasurfLength, int nder){
 
@@ -33,7 +33,7 @@ void pot(
 
 	i=0;
 	for (j=0; j<3; j++) {
-		for (k=0; k<3; k++) {
+		for (k=0; k<cartLength/3; k++) {
 			usricm_.CART[k][j]=cart[i];
 			i++;
 		}
@@ -63,10 +63,10 @@ void pot(
 	i=0;
 
 	output[i]=usrocm_.PENGYGS;
-	i++;
+	i=1;
 
 	for (j=0; j<3; j++) {
-		for (k=0; k<3; k++) {
+		for (k=0; k<cartLength/3; k++) {
 			output[i]=usrocm_.DGSCART[k][j];
 			i++;
 		}
