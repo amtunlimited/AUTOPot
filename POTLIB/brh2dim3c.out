@@ -1,0 +1,78 @@
+
+ *****Potential Energy Surface *****
+
+    BrH2 DIM-3C potential energy surface
+
+    Potential energy surface parameters:
+    HH parameters (atomic units):
+         RHH   =   1.40160E+00         AHH   =   1.02910E+00
+         DHH   =   1.74470E-01         BHH   =   1.80000E-02
+    HBr parameters (atomic units):
+         RHBr  =   2.67300E+00         AHBr  =   9.57000E-01
+         DHBr  =   1.43900E-01         BHBr  =   1.20000E-02
+
+    Other parameters (atomic units):
+         ETAHH =   3.93764E-01         ETA3S =   3.22000E-01
+         ETA1P =   2.02860E-01         ETA3P =   1.77100E-01
+         XIH   =   1.00000E+00         XIX   =   1.60000E+00
+         G     =   2.20000E-01         ALFW  =   1.00000E+00
+
+ *****
+
+
+  D. C. Clary, Chem. Phys. 71, 117 (1982)                                    
+  I. Last and M. Baer in                                                     
+  Potential Energy Surfaces and Dynamics                                     
+  D. G. Truhlar (Ed.) (Plenum, New York, 1981), p. 519                       
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   0       0
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      1       1
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       Br                                  Br
+  Atom  2 is       H                                   H 
+  Atom  3 is       H                                   H 
+
+
+  Atom  1  Br is a member of Reactant #1
+  Atom  2  H  is a member of Reactant #2
+  Atom  3  H  is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  Br
+
+  Reactant #2
+  H H 
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+  GS Energy         0.24774168061461
+
+  Derivative          0.21313125388    -0.34680083673     0.00000000000
+  Derivative         -0.06564034144     0.30616551365     0.00000000000
+  Derivative         -0.14749091243     0.04063532308     0.00000000000

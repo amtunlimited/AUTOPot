@@ -1,0 +1,67 @@
+
+
+  J. Espinosa-Garcia and J. C. Garcia-Bernaldez                              
+  Phys. Chem. Chem. Phys., Vol. 2, p. 2345, 2000                             
+                                                                             
+                                                                             
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   0       0
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      1       1
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       H                                   H 
+  Atom  2 is       C                                   C 
+  Atom  3 is       H                                   H 
+  Atom  4 is       H                                   H 
+  Atom  5 is       H                                   H 
+  Atom  6 is       O                                   O 
+
+
+  Atom  1  H  is a member of Reactant #1
+  Atom  2  C  is a member of Reactant #1
+  Atom  3  H  is a member of Reactant #1
+  Atom  4  H  is a member of Reactant #1
+  Atom  5  H  is a member of Reactant #1
+  Atom  6  O  is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  H C H H H 
+
+  Reactant #2
+  O 
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+  GS Energy         8.65444107489348
+
+  Derivative           .00227687629      .00584048196      .03460622780
+  Derivative         -7.09623124017   -12.32514559086    -5.09103508659
+  Derivative          -.04108396267     -.03659554794    -1.17416154775
+  Derivative         -1.16605676866     -.06515690901      .37050101975
+  Derivative           .52599793034    -1.04123236030      .37590006416
+  Derivative          7.77509716486    13.46228992616     5.48418932262

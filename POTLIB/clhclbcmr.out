@@ -1,0 +1,71 @@
+
+ ***** Potential Energy Surface *****
+
+    ClHCl BCMR LEPS potential energy surface
+
+    Parameters:
+    Bond                                     Cl-H        H-Cl      Cl-Cl
+    Dissociation energies (kcal/mol):       106.47700  106.47700   57.98300
+    Equilibrium bond lengths (Angstroms):     1.27500    1.27500    1.98800
+    Morse beta parameters (Angstroms**-1):    1.86800    1.86800    2.00200
+    Sato parameters:                          0.11500    0.11500    0.11500
+
+ *****
+
+
+  D. K. Bondi, J. N. L. Connor, J. Manz, J. Romelt                           
+  J. Mol. Phys. 50, 467(1983)                                                
+  S. Sato                                                                    
+  J. Chem. Phys. 592, 2465(1955)                                             
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   0       0
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      1       1
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       Cl                                  Cl
+  Atom  2 is       H                                   H 
+  Atom  3 is       Cl                                  Cl
+
+
+  Atom  1  Cl is a member of Reactant #1
+  Atom  2  H  is a member of Reactant #2
+  Atom  3  Cl is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  Cl
+
+  Reactant #2
+  H Cl
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+  GS Energy         0.83164304396960
+
+  Derivative          0.60731362293    -0.63566048810     0.00000000000
+  Derivative          1.03363411242     0.30442843564     0.00000000000
+  Derivative         -1.64094773535     0.33123205246     0.00000000000

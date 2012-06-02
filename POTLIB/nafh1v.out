@@ -1,0 +1,103 @@
+ PREPOT called for MHF N3 potential 
+ energy surface.
+ Development version.
+ Last modified 7 October 1997.
+ 
+
+======================== MHF - U11 potential ========================
+   dt2 =  2.885656E-02    ret2 =  1.237624E+00  betat2 =  1.038036E+01
+ c1 =  1.255969E+06   c2 =  4.700000E+00   c3 =  5.546257E+00
+ c4 =  5.573967E-01
+  ads1 =  8.000000E-02
+  ars1 =  4.000000E+00    abs1 =  1.550000E+00    cds1 =  2.400000E+00
+  crs1 =  4.150000E+00    cbs1 =  1.200000E+00     swa =  7.000000E-01
+  swr0 =  6.500000E+00    swa2 =  1.100000E+00   swr20 =  1.900000E+00
+   c2a =  1.500000E+00     c2b =  1.000000E+00     c2c =  1.500000E-01
+======================================================================
+
+========================= MFH - U12 coupling =========================
+  ccMF =        0.399600E+01  0.547300E+00 -0.114280E+01  0.204400E+00
+
+  ccMH =       0.100000E+01  0.800000E+00 -0.267000E+01  0.456000E+00
+
+  ahf =          0.300000E+01
+  anaf =         0.180000E+01
+  anah =         0.160000E+01
+  r21 =          0.700000E+00
+  r23 =         -0.330060E+00
+  r13 =          0.124310E+01
+
+======================== MHF - U22 potential =========================
+  y90d1 =  1.372065E-02    y90r1 =  7.233552E+00  y90b1 =  5.127734E-01
+  y90d2 =  1.106187E+00    y90r2 =  2.002516E+00  y90b2 =  9.514887E-01
+  swa22 =  7.849500E-01   swr022 =  7.476540E+00
+   y0d1 =  2.417800E-01     y0r1 =  3.708055E+00   y0b1 =  6.960127E-01
+   y0d2 =  8.870172E-01     y0r2 =  2.300265E+00   y0b2 =  8.497374E-01
+  swa22 =  7.849500E-01   swr022 =  7.476540E+00
+   c1s1 =  2.031280E+02     c2s1 =  1.616700E+00   c3s1 = -1.001240E+02
+   c4s1 =  6.807800E+01     c5s1 = -1.583200E+01   c6s1 =  1.303000E+00
+    c2a =  8.000000E-01      c2b =  8.000000E-01    c2c =  1.500000E-01
+   a0g1 = -8.210245E-02     b0g1 =  4.658698E+00   r0g1 =  4.552860E+00
+   a0g2 =  3.546427E-02     b0g2 =  6.456787E-01   r0g2 =  6.332225E+00
+   a0g3 = -1.562327E-02     b0g3 =  1.170537E-01   r0g3 =  1.097310E+01
+  a90g1 = -9.929297E-02    b90g1 =  4.367220E+00  r90g1 =  4.402447E+00
+  a90g2 =  4.696181E-02    b90g2 =  5.470459E-01  r90g2 =  6.289526E+00
+  a90g3 = -1.219900E-02    b90g3 =  1.002291E-02  r90g3 =  1.118725E+01
+=======================================================================
+
+
+  No Reference                                                               
+                                                                             
+                                                                             
+                                                                             
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   1       1
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      0       0
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       Na                                  Na
+  Atom  2 is       F                                   F 
+  Atom  3 is       H                                   H 
+
+
+  Atom  1  Na is a member of Reactant #1
+  Atom  2  F  is a member of Reactant #2
+  Atom  3  H  is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  Na
+
+  Reactant #2
+  F H 
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+  GS Energy         0.21692430819105
+
+  1th Excited State Energy    0.985226913441059E-01
+  1-2 Coupling Energy         0.148487402608204E-01

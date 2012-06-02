@@ -1,0 +1,67 @@
+
+    PREPOT has been called for the H3 potential energy surface PK2
+
+    Potential energy surface parameters:
+              D1             0.17443290          D3             0.07227797
+              EPS           -0.64310785          DEL            1.03632236
+              RE             1.40083000          ALPH           1.04435000
+              BETA           1.00012200          FKAP           0.60000000
+              GAM            0.65000000
+
+
+  R. N. Porter and M. Karplus                                                
+  J. Chem. Phys. 40, 1105(1964)                                              
+                                                                             
+                                                                             
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   0       0
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      1       1
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       H                                   H 
+  Atom  2 is       H                                   H 
+  Atom  3 is       H                                   H 
+
+
+  Atom  1  H  is a member of Reactant #1
+  Atom  2  H  is a member of Reactant #2
+  Atom  3  H  is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  H 
+
+  Reactant #2
+  H H 
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+  GS Energy         0.02145556400182
+
+  Derivative          0.01893827481    -0.01417329107     0.00000000000
+  Derivative         -0.02795185047     0.00039212407     0.00000000000
+  Derivative          0.00901357566     0.01378116700     0.00000000000
