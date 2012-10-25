@@ -1,8 +1,8 @@
 mldk = /usr/local/Wolfram/Mathematica/8.0/SystemFiles/Links/MathLink/DeveloperKit/Linux-x86-64/CompilerAdditions
 
-cflags = -I${mldk} -L${mldk} -lML64i3  -lpthread -lrt
+cflags = -I${mldk} -L${mldk} -lML64i3 -lpthread -lrt
 
-file = $(basename ${ffile})
+file = dummy
 
 All: ${file}
 
