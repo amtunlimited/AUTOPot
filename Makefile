@@ -8,26 +8,26 @@ name = $(notdir $(basename ${ffile}))
 
 All: ${name}
 
-pot.tm.c:
+tmp/pot.tm.c:
 	cd tmp; \
 	${mldk}/mprep pot.tm -o pot.tm.c
 	
-pot.tm.o: pot.tm.c
+tmp/pot.tm.o: tmp/pot.tm.c
 	cd tmp; \
 	gcc pot.tm.c ${cflags} -c -o pot.tm.o
 
-${name}.o:
-	gfortran ${ffile} -c -o tmp/${name}.o
-
-pot.o:
+tmp/pot.o:
 	gcc src/pot.c ${cflags} -c -o tmp/pot.o
 	
-utility.o:
+tmp/utility.o:
 	gfortran src/utility.f -c -o tmp/utility.o
+	
+tmp/${name}.o:
+	gfortran ${ffile} -c -o tmp/${name}.o
 
-${name}: pot.tm.o ${name}.o pot.o utility.o
+${name}: tmp/pot.tm.o tmp/${name}.o tmp/pot.o tmp/utility.o 
 	cd tmp; \
-	gfortran utility.o pot.tm.o ${name}.o pot.o ${cflags} -o ../${name}
+	gfortran pot.tm.o ${name}.o utility.o pot.o ${cflags} -o ../${name}
 	
 clean:
 	rm tmp/*
