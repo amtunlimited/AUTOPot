@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sed "s/@FUNC@/`basename $1 .f`/" < src/pot.tm.in > tmp/pot.tm
+make ffile=${1}

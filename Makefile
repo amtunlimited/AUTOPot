@@ -2,30 +2,33 @@ mldk = /usr/local/Wolfram/Mathematica/8.0/SystemFiles/Links/MathLink/DeveloperKi
 
 cflags = -I${mldk} -L${mldk} -lML64i3 -lpthread -lrt
 
-file = dummy
+ffile = dummy
 
-All: ${file}
+name = $(notdir $(basename ${ffile}))
+
+All: ${name}
 
 pot.tm.c:
-	${mldk}/mprep src/pot.tm -o src/pot.tm.c
+	cd tmp; \
+	${mldk}/mprep pot.tm -o pot.tm.c
 	
 pot.tm.o: pot.tm.c
-	gcc src/pot.tm.c ${cflags} -c
+	cd tmp; \
+	gcc pot.tm.c ${cflags} -c -o pot.tm.o
 
-${file}.o:
-	gfortran src/${file}.f -c
+${name}.o:
+	gfortran ${ffile} -c -o tmp/${name}.o
 
 pot.o:
-	gcc src/pot.c ${cflags} -c
+	gcc src/pot.c ${cflags} -c -o tmp/pot.o
 	
 utility.o:
-	gfortran src/utility.f -c
+	gfortran src/utility.f -c -o tmp/utility.o
 
-${file}: pot.tm.o ${file}.o pot.o utility.o
-	gfortran utility.o pot.tm.o ${file}.o pot.o ${cflags} -o ${file}
-	rm *.o
-	rm src/*.tm.c
+${name}: pot.tm.o ${name}.o pot.o utility.o
+	cd tmp; \
+	gfortran utility.o pot.tm.o ${name}.o pot.o ${cflags} -o ../${name}
 	
 clean:
-	rm H3
-	rm *~
+	rm tmp/*
+	rm *~ -f
