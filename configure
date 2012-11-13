@@ -7,7 +7,7 @@ fi
 sed "s/@FUNC@/`basename $1 .f`/" < src/pot.tm.in > tmp/pot.tm
 
 case ${2} in
-	"cygwin")	cflags="-mwin32 -mno-cygwin -lML32i1" ;;
+	"cygwin")	cflags="-mwindows -mwin32 -lML32i3" ;;
 	"linux")	cflags="-lML64i3 -lpthread -lrt" ;;
 	"mac")	cflags="-";;
 esac
