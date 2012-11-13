@@ -15,3 +15,7 @@ esac
 sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < src/Makefile.in > Makefile
 
 cp $1 ./
+
+if [${2} -eq "cygwin"] then
+	cp /bin/cygwin1.dll /bin/cyggcc_s-1.dll /bin/cyggfortran-3.dll ./
+fi
