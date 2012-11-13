@@ -1,0 +1,32 @@
+cflags = @cflags@
+
+ffile = @ffile@
+
+name = $(notdir $(basename ${ffile}))
+
+All: ${name}
+
+tmp/pot.tm.c:
+	cd tmp; \
+	mprep pot.tm -o pot.tm.c
+	
+tmp/pot.tm.o: tmp/pot.tm.c
+	cd tmp; \
+	gcc pot.tm.c ${cflags} -c -o pot.tm.o
+
+tmp/pot.o:
+	gcc src/pot.c ${cflags} -c -o tmp/pot.o
+	
+tmp/utility.o:
+	gfortran src/utility.f -c -o tmp/utility.o
+	
+tmp/${name}.o:
+	gfortran ${ffile} -c -o tmp/${name}.o
+
+${name}: tmp/pot.tm.o tmp/${name}.o tmp/pot.o tmp/utility.o 
+	cd tmp; \
+	gfortran pot.tm.o ${name}.o utility.o pot.o ${cflags} -o ../${name}
+	
+clean:
+	rm tmp/*
+	rm *~ -f

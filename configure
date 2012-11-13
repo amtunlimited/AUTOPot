@@ -1,4 +1,17 @@
 #!/bin/sh
 
+if [ ! -d "./tmp" ]; then
+	mkdir tmp
+fi
+
 sed "s/@FUNC@/`basename $1 .f`/" < src/pot.tm.in > tmp/pot.tm
-make ffile=${1}
+
+case ${2} in
+	"cygwin")	cflags="-lML32i3 -m32 -mwindows" ;;
+	"linux")	cflags="-lML64i3 -lpthread -lrt" ;;
+	"mac")	cflags="-";;
+esac
+
+sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < src/Makefile.in > Makefile
+
+cp $1 ./
