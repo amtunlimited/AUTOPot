@@ -1,4 +1,4 @@
-cflags = @cflags@
+cflags = -I/usr/include @cflags@
 
 ffile = @ffile@
 
