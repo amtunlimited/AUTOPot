@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+my $fDir   = $ARGV[0];
+my $binDir = $ARGV[1];
+
+if ($fDir =~ /(.*)[^\/]$/) {
+	$fDir .= '/';
+}
+
+if ($binDir =~ /(.*)[^\/]$/) {
+	$binDir .= '/';
+}
+
+
+my @allFiles = split("\n", `ls $fDir -1`);
+my @fFiles;
+
+foreach (@allFiles) {
+	if(/^(.*)\.[f]$/) {
+		push @fFiles, $_;
+	};
+};
+
+print "Found files:\n";
+
+foreach (@fFiles) {
+	print "\t$_\n";
+};
+
+if (not(-d $_)) {
+	print "The bin directory specified does not exist; it will be created now.\n";
+	mkdir $binDir;
+};
+
+foreach (@fFiles) {
+	system ("./configure", $fDir.$_, "linux");
+	system ("make") == 0 or die "There was a problem with file $_, the program will now exit";
+	system ("mv", substr($_, 0, -2), $binDir);
+	system ("rm", $_);
+}
