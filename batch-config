@@ -2,6 +2,7 @@
 
 my $fDir   = $ARGV[0];
 my $binDir = $ARGV[1];
+my $OS = $ARGV[2];
 
 if ($fDir =~ /(.*)[^\/]$/) {
 	$fDir .= '/';
@@ -33,7 +34,7 @@ if (not(-d $_)) {
 };
 
 foreach (@fFiles) {
-	system ("./configure", $fDir.$_, "linux");
+	system ("./configure", $fDir.$_, $OS);
 	system ("make") == 0 or die "There was a problem with file $_, the program will now exit";
 	system ("mv", substr($_, 0, -2), $binDir);
 	system ("rm", $_);
