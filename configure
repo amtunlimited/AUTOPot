@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh 
 
 if [ ! -d "./tmp" ]; then
 	mkdir tmp
@@ -7,15 +7,20 @@ fi
 sed "s/@FUNC@/`basename $1 .f`/" < src/pot.tm.in > tmp/pot.tm
 
 case ${2} in
-	"cygwin")	cflags="-mwindows -mwin32 -lML32i3" ;;
+	"cygwin")	cflags="-mwindows -mwin32 -L\/lib -lML32i3 -static" ;;
 	"linux")	cflags="-lML64i3 -lpthread -lrt" ;;
 	"mac")	cflags="-";;
 esac
 
 sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < src/Makefile.in > Makefile
 
+echo "Herp Derp\n"
+
 cp $1 ./
 
 if [ ${2} = "cygwin" ]; then
+	mv Makefile Makefile~
+	sed -e "s/gcc/i686\-pc\-mingw32\-gcc/g" -e "s/gfortran/i686\-pc\-mingw32\-gfortran/g" <Makefile~ >Makefile
+	rm Makefile~ 
 	cp /bin/cygwin1.dll /bin/cyggcc_s-1.dll /bin/cyggfortran-3.dll ./
 fi
