@@ -31,9 +31,9 @@ No installation is necessary beyond simply saving the folder to the computer.
 To use the included scripts and to build the libraries, you will need GCC,
 GFORTRAN, and perl installed on your system. If you are using Linux, these are
 normally installed by default. Compiling on/building for Windows is possible,
-but you will to install Cygwin. See below for more details.
+but you will to install Cygwin. [See below](#Cygwin) for more details.
 
-##Use
+##Useage Instruction
 
 To use this library, you have to build the POTLIB source library against pot.c
 and utility.f along with generating code for MathLink using the mprep utility
@@ -57,6 +57,39 @@ just make sure to copy the src, tmp, and makefile in the same folder.
 mathlink.h header file are installed in the execution path, where your computer
 and GCC defaults to. The files are found in:
 
-    \[Mathematica install folder\]/SystemFiles/Links/MathLink/DeveloperKit/\[Operating System\]/CompilerAdditions
+    [Mathematica install folder]/SystemFiles/Links/MathLink/DeveloperKit/[Operating System]/CompilerAdditions
 
-The second script `
+The second script `batch-config` compiles batches of MathLink excecutables It's
+format is:
+
+    ./batch-config POTfolder binfolder platform
+    
+The first argument `POTfolder` is the folder containing the POTLIB FORTRAN files
+ready for compiling. The second argument `binfolder` is the folder the resulting
+executables will go. The last argument `platform` is for the `configure` script.
+
+This script builds each .f file in `POTfolder` using the `configure` script.
+
+##Cygwin
+
+To compile MathLink executables on Windows, this package uses *Cygwin*, a Linux
+emulator, and *MinGW*, a minimalist GCC compiler for Windows. In Cygwin, you
+need to have the following packages installed:
+
+* mingw-gcc
+* mingw-gfortran
+* make
+* perl
+
+You will also have to install the mprep executable, ML32i3 library, and
+mathlink.h in the correct locations. Other than that, it works exactly as in
+Linux. The final product is a MathLink executable.
+
+**Note:** Because of licensing of `cygwin1.dll`, if you distribute Cygwin-built
+MathLink executables you much release the source code under the GPLv3 or a
+compatible license.
+
+##License
+
+This software is licensed under the GPLv3. For more information, please see
+`COPYING`
