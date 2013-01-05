@@ -59,4 +59,4 @@ and GCC defaults to. The files are found in:
 
     \[Mathematica install folder\]/SystemFiles/Links/MathLink/DeveloperKit/\[Operating System\]/CompilerAdditions
 
-
+The second script `
