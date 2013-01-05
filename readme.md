@@ -31,9 +31,9 @@ No installation is necessary beyond simply saving the folder to the computer.
 To use the included scripts and to build the libraries, you will need GCC,
 GFORTRAN, and perl installed on your system. If you are using Linux, these are
 normally installed by default. Compiling on/building for Windows is possible,
-but you will to install Cygwin. [See below](#Cygwin) for more details.
+but you will to install Cygwin. [See below](#cygwin) for more details.
 
-##Useage Instruction
+##Usage Instruction
 
 To use this library, you have to build the POTLIB source library against pot.c
 and utility.f along with generating code for MathLink using the mprep utility
