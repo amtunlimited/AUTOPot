@@ -14,8 +14,6 @@ esac
 
 sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < src/Makefile.in > Makefile
 
-echo "Herp Derp\n"
-
 cp $1 ./
 
 if [ ${2} = "cygwin" ]; then
