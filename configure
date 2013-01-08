@@ -4,19 +4,47 @@ if [ ! -d "./tmp" ]; then
 	mkdir tmp
 fi
 
-sed "s/@FUNC@/`basename $1 .f`/" < src/pot.tm.in > tmp/pot.tm
+sed "s/@FUNC@/`basename $1 .f`/" < tmp/pot.tm.in > tmp/pot.tm
 
-case ${2} in
-	"cygwin")	cflags="-mwindows -mwin32 -L\/lib -lML32i3 -static" ;;
-	"linux")	cflags="-lML64i3 -lpthread -lrt" ;;
-	"mac")	cflags="-";;
+#Figure out which kernel to build for
+OS=`uname | cut -c 1`
+
+# C = CYGWIN
+# L = Linux
+# D = Darwin (Macintosh)
+
+case $OS in
+	"C")	osc="cygwin" ;;
+	"L")	osc="Linux" ;;
+	"D")	osc="-";;
 esac
 
-sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < src/Makefile.in > Makefile
 
-cp $1 ./
+if [! -e "mathdir" ]; then #find out if the install dir is known. if not, find using env variable
+	mathdir=`math -run 'Write["stdout", $InstallationDirectory]; Exit[]' -noprompt`
+	mathdir=`cat $mathdir | sed "s/^\"\(.*\)\"$/\1/"`
+	echo $mathdir/SystemFiles/Links/MathLink/DeveloperKit/$osc/CompilerAdditions > mathdir
+fi
 
-if [ ${2} = "cygwin" ]; then
+mathdir=`cat mathdir`
+
+$mathdir/mprep tmp/pot.tm -o src/pot.tm.c
+
+case $OS in
+	"C")	cflags="-mwindows -mwin32 -L$mathdir -I$mathdir -lML32i3 -static" ;;
+	"L")	cflags="-L$mathdir -I$mathdir -lML64i3 -lpthread -lrt" ;;
+	"D")	cflags="-";;
+esac
+
+sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < tmp/Makefile.in > Makefile
+
+cp $1 ./src
+
+if [ -d "bin" ]; then
+	mkdir bin
+fi
+
+if [ $OS = "C" ]; then
 	mv Makefile Makefile~
 	sed -e "s/gcc/i686\-pc\-mingw32\-gcc/g" -e "s/gfortran/i686\-pc\-mingw32\-gfortran/g" <Makefile~ >Makefile
 	rm Makefile~ 

@@ -35,6 +35,8 @@ but you will to install Cygwin. [See below](#cygwin) for more details.
 
 ##Usage Instruction
 
+###Configure
+
 To use this library, you have to build the POTLIB source library against pot.c
 and utility.f along with generating code for MathLink using the mprep utility
 that comes with the MathLink libraries. To make things simpler, two scripts are
@@ -45,28 +47,33 @@ and a makefile.
 The first script `configure` is a shell script for single packages and is
 the backbone of the batch script as well. The call format is:
 
-    ./configure POTLIBfile platform
+    ./configure POTLIBfile
     
-The first argument `POTLIBfile` is the actual POTLIB FORTRAN file to be used
-and `platform` is the platform you are building for, either 'cygwin', 'linux',
-or 'mac'. The script copies the library to the AUTOPot folder and seds through
-the templates for the makefile and mprep MathLink template files. To package,
-just make sure to copy the src, tmp, and makefile in the same folder.
+The first argument `POTLIBfile` is the actual POTLIB FORTRAN file to be used.
+The script copies the library to the AUTOPot folder and seds through
+the templates for the makefile and mprep MathLink template files, along with
+finding the install directory of Mathematica and copying the FORTRAN file into
+the src directory.
 
-**Note:** The makefile assumes the mprep utility, ML32i3 library, and
-mathlink.h header file are installed in the execution path, where your computer
-and GCC defaults to. The files are found in:
+**Note:** The script creates a file called `mathdir` that stores the absolute
+location to the utilities, libraries, and header files needed for MathLink. If
+you have these files installed in a different location, or you with to use a 
+different version of *Mathematica*'s MathLink (which, for this library,
+shouldn't matter), then create this file and change it **before running
+`configure`.** The location stored in this file is hard-coded into the
+makefile generated and the mprep stored in that location is used to generate
+the pot.tm.c MathLink code.
 
-    [Mathematica install folder]/SystemFiles/Links/MathLink/DeveloperKit/[Operating System]/CompilerAdditions
+###Batch-make
 
-The second script `batch-config` compiles batches of MathLink excecutables It's
+The second script `batch-make` compiles batches of MathLink excecutables It's
 format is:
 
-    ./batch-config POTfolder binfolder platform
+    ./batch-make POTfolder binfolder
     
 The first argument `POTfolder` is the folder containing the POTLIB FORTRAN files
 ready for compiling. The second argument `binfolder` is the folder the resulting
-executables will go. The last argument `platform` is for the `configure` script.
+executables will go. 
 
 This script builds each .f file in `POTfolder` using the `configure` script.
 
