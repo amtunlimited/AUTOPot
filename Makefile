@@ -1,6 +1,6 @@
-cflags = -I/usr/include @cflags@
+cflags = -I/usr/include -L/home/arn44621/.Wolfram/9.0/SystemFiles/Links/MathLink/DeveloperKit/Linux/CompilerAdditions -I/home/arn44621/.Wolfram/9.0/SystemFiles/Links/MathLink/DeveloperKit/Linux/CompilerAdditions -lML64i3 -lpthread -lrt
 
-ffile = @ffile@
+ffile = fh25sec.f
 
 name = $(notdir $(basename ${ffile}))
 

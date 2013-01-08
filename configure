@@ -20,9 +20,9 @@ case $OS in
 esac
 
 
-if [! -e "mathdir" ]; then #find out if the install dir is known. if not, find using env variable
+if [ ! -e "mathdir" ]; then #find out if the install dir is known. if not, find using env variable
 	mathdir=`math -run 'Write["stdout", $InstallationDirectory]; Exit[]' -noprompt`
-	mathdir=`cat $mathdir | sed "s/^\"\(.*\)\"$/\1/"`
+	mathdir=`echo $mathdir | sed "s/^\"\(.*\)\"$/\1/"`
 	echo $mathdir/SystemFiles/Links/MathLink/DeveloperKit/$osc/CompilerAdditions > mathdir
 fi
 
@@ -30,17 +30,24 @@ mathdir=`cat mathdir`
 
 $mathdir/mprep tmp/pot.tm -o src/pot.tm.c
 
+#Escape out all of the backslashes and periods
+mathdir=`echo $mathdir | sed 's/\// \\\\ \/ /g'`
+mathdir=`echo $mathdir | sed 's/ //g'`
+mathdir=`echo $mathdir | sed 's/\./\\\./g'`
+
 case $OS in
 	"C")	cflags="-mwindows -mwin32 -L$mathdir -I$mathdir -lML32i3 -static" ;;
 	"L")	cflags="-L$mathdir -I$mathdir -lML64i3 -lpthread -lrt" ;;
 	"D")	cflags="-";;
 esac
 
-sed -e "s/@ffile@/`basename $1`/" -e 's/@cflags@/'"$cflags"'/'  < tmp/Makefile.in > Makefile
+
+
+sed -e "s/@ffile@/`basename $1`/" -e "s/@cflags@/$cflags/"  < tmp/Makefile.in > Makefile
 
 cp $1 ./src
 
-if [ -d "bin" ]; then
+if [ ! -d "bin" ]; then
 	mkdir bin
 fi
 
