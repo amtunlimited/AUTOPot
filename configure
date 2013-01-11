@@ -35,7 +35,11 @@ fi
 
 mathdir=`cat mathdir`
 
-$mathdir/mprep tmp/pot.tm -o src/pot.tm.c
+if [ $OS = "C" ]; then
+	$mathdir/bin/mprep tmp/pot.tm -o src/pot.tm.c
+else
+	$mathdir/mprep tmp/pot.tm -o src/pot.tm.c
+fi
 
 #Escape out all of the backslashes and periods
 mathdir=`echo $mathdir | sed 's/\// \\\\ \/ /g'`
