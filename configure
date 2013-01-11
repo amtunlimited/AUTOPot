@@ -14,15 +14,22 @@ OS=`uname | cut -c 1`
 # D = Darwin (Macintosh)
 
 case $OS in
-	"C")	osc="cygwin" ;;
+	"C")	osc="Windows" ;;
 	"L")	osc="Linux" ;;
 	"D")	osc="-";;
 esac
 
 
 if [ ! -e "mathdir" ]; then #find out if the install dir is known. if not, find using env variable
-	mathdir=`math -run 'Write["stdout", $InstallationDirectory]; Exit[]' -noprompt`
-	mathdir=`echo $mathdir | sed "s/^\"\(.*\)\"$/\1/"`
+	if [ $OS = "C" ]; then
+		echo "You are running cygwin, which makes finding the default path of Mathematica difficult."
+		echo "Please enter the install directory of Mathematica (this is stored as '\$InstallationDirectory' in Mathematica)"
+		echo "in Linux form. You can access Windows drives in Cygwin through /cygdrive/(drive letter)"
+		read -p ": " mathdir
+	else
+		mathdir=`math -run 'Write["stdout", $InstallationDirectory]; Exit[]' -noprompt`
+		mathdir=`echo $mathdir | sed "s/^\"\(.*\)\"$/\1/"`
+	fi
 	echo $mathdir/SystemFiles/Links/MathLink/DeveloperKit/$osc/CompilerAdditions > mathdir
 fi
 
@@ -32,11 +39,11 @@ $mathdir/mprep tmp/pot.tm -o src/pot.tm.c
 
 #Escape out all of the backslashes and periods
 mathdir=`echo $mathdir | sed 's/\// \\\\ \/ /g'`
-mathdir=`echo $mathdir | sed 's/ //g'`
 mathdir=`echo $mathdir | sed 's/\./\\\./g'`
+mathdir=`echo $mathdir | sed 's/ //g'`
 
 case $OS in
-	"C")	cflags="-mwindows -mwin32 -L$mathdir -I$mathdir -lML32i3 -static" ;;
+	"C")	cflags="-mwindows -mwin32 -L$mathdir\/cygwin\/lib -I$mathdir\/cygwin\/include -lML32i3 -static" ;;
 	"L")	cflags="-L$mathdir -I$mathdir -lML64i3 -lpthread -lrt" ;;
 	"D")	cflags="-";;
 esac
