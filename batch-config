@@ -36,5 +36,7 @@ foreach (@fFiles) {
 	system ("./configure", $fDir.$_);
 	system ("make") == 0 or die "There was a problem with file $_, the program will now exit";
 	system ("mv", substr($_, 0, -2), $binDir);
-	system ("rm", "src".$_);
+	system ("rm", "src/".$_);
+	system ("rm", $binDir."pot.tm.o");
+
 }
